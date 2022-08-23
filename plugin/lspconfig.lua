@@ -1,5 +1,6 @@
 local status, nvim_lsp = pcall(require, 'lspconfig')
 if (not status) then return end
+local coq = require "coq"
 
 local protocol = require('vim.lsp.protocol')
 
@@ -14,9 +15,11 @@ local on_attach = function(client, bufnr)
 end
 
 nvim_lsp.tsserver.setup {
-    on_attach = on_attach,
-    filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-    cmd = { "typescript-language-server", "--stdio" }
+    coq.lsp_ensure_capabilities {
+        on_attach = on_attach,
+        filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+        cmd = { "typescript-language-server", "--stdio" }
+    }
 }
 
 nvim_lsp.sumneko_lua.setup {
