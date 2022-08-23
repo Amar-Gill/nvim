@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["coq.artifacts"] = {
+    loaded = true,
+    path = "/Users/amar/.local/share/nvim/site/pack/packer/start/coq.artifacts",
+    url = "https://github.com/ms-jpq/coq.artifacts"
+  },
   coq_nvim = {
     loaded = true,
     path = "/Users/amar/.local/share/nvim/site/pack/packer/start/coq_nvim",

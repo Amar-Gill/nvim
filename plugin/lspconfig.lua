@@ -1,6 +1,11 @@
 local status, nvim_lsp = pcall(require, 'lspconfig')
 if (not status) then return end
+-- coq_nvim autocomplete. settings must be set before local require
+vim.g.coq_settings = {
+    auto_start = 'shut-up'
+}
 local coq = require "coq"
+
 
 local protocol = require('vim.lsp.protocol')
 
