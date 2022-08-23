@@ -5,6 +5,8 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  const o = {foo: 1, bar: 2, baz: 3};
+
   return (
     <div className="App">
       <div>
