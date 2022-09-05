@@ -21,9 +21,7 @@ end
 
 nvim_lsp.tsserver.setup {
     coq.lsp_ensure_capabilities {
-        on_attach = on_attach,
-        filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-        cmd = { "typescript-language-server", "--stdio" }
+        on_attach = on_attach
     }
 }
 
