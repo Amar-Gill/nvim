@@ -13,10 +13,16 @@ cmp.setup({
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<Tab>'] = cmp.mapping.select_next_item(),
+        ['<Tab>'] = cmp.mapping.select_next_item(), -- TODO fix tab and s-tab. this is not recommending config
         ['<S-Tab>'] = cmp.mapping.select_prev_item(),
         ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
+    --    the order of your sources matter (by default). That gives them priority
+    --    you can configure:
+    --        keyword_length
+    --        priority
+    --        max_item_count
+    --        (more?)
     sources = cmp.config.sources({
         { name = 'nvim_lua' },
         { name = 'nvim_lsp' },
@@ -25,7 +31,19 @@ cmp.setup({
         { name = 'buffer' },
     }),
     formatting = {
-        format = lspkind.cmp_format({ mode = 'symbol', maxwidth = 50 })
+        format = lspkind.cmp_format {
+            mode = 'symbol_text',
+            maxwidth = 50,
+            menu = {
+                buffer = "[buf]",
+                nvim_lsp = "[LSP]",
+                nvim_lua = "[api]",
+                path = "[path]",
+                luasnip = "[snip]",
+                -- gh_issues = "[issues]",
+                -- tn = "[TabNine]",
+            },
+        }
     }
 })
 
