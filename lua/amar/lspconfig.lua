@@ -3,6 +3,8 @@ if (not status) then return end
 
 local protocol = require('vim.lsp.protocol')
 
+local capabilities = require('cmp_nvim_lsp').update_capabilities(protocol.make_client_capabilities())
+
 local on_attach = function(client, bufnr)
     -- formatting
     if client.server_capabilities.documentFormattingProvider then
@@ -14,7 +16,8 @@ local on_attach = function(client, bufnr)
 end
 
 nvim_lsp.tsserver.setup {
-    on_attach = on_attach
+    on_attach = on_attach,
+    capabilities = capabilities
 }
 
 nvim_lsp.sumneko_lua.setup {
