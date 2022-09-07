@@ -13,9 +13,22 @@ cmp.setup({
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<Tab>'] = cmp.mapping.select_next_item(), -- TODO fix tab and s-tab. this is not recommending config
-        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
         ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        -- read :help ins-completion for more info on why you might not want to to use tab to cycle through menu options
+        ["<Tab>"] = function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            else
+                fallback()
+            end
+        end,
+        ["<S-Tab>"] = function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            else
+                fallback()
+            end
+        end,
     }),
     --    the order of your sources matter (by default). That gives them priority
     --    you can configure:
