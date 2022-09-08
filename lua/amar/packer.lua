@@ -32,6 +32,12 @@ return require('packer').startup(function(use)
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
 
+    -- syntax highlighting
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = 'TSUpdate'
+    }
+
     -- coq.nvim completion. not using for now.
     --use {
     --    'ms-jpq/coq_nvim',
