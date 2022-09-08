@@ -17,3 +17,8 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.g.mapleader = " "
+
+vim.opt.cursorline = true
+vim.opt.hlsearch = true
+
+vim.opt.termguicolors = true
