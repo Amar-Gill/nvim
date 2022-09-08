@@ -8,7 +8,8 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- color theme
-    use { 'ellisonleao/gruvbox.nvim' }
+    -- use { 'ellisonleao/gruvbox.nvim' }
+    use 'sainnhe/gruvbox-material'
 
     -- status line
     use {
