@@ -104,11 +104,6 @@ _G.packer_plugins = {
     path = "/Users/amar/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["gruvbox-material"] = {
-    loaded = true,
-    path = "/Users/amar/.local/share/nvim/site/pack/packer/start/gruvbox-material",
-    url = "https://github.com/sainnhe/gruvbox-material"
-  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/Users/amar/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -144,6 +139,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/amar/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["rasmus.nvim"] = {
+    loaded = true,
+    path = "/Users/amar/.local/share/nvim/site/pack/packer/start/rasmus.nvim",
+    url = "https://github.com/kvrohit/rasmus.nvim"
   }
 }
 

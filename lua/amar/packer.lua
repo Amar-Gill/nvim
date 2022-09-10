@@ -9,7 +9,8 @@ return require('packer').startup(function(use)
 
     -- color theme
     -- use { 'ellisonleao/gruvbox.nvim' }
-    use 'sainnhe/gruvbox-material'
+    -- use 'sainnhe/gruvbox-material'
+    use 'kvrohit/rasmus.nvim'
 
     -- status line
     use {
