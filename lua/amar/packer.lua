@@ -40,6 +40,10 @@ return require('packer').startup(function(use)
         run = 'TSUpdate'
     }
 
+    -- auto close tags and brackets / parentheses
+    use 'windwp/nvim-autopairs'
+    use 'windwp/nvim-ts-autotag'
+
     -- coq.nvim completion. not using for now.
     --use {
     --    'ms-jpq/coq_nvim',
