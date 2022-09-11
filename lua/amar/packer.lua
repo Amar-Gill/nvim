@@ -7,6 +7,8 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    use 'nvim-lua/plenary.nvim' -- Common utilities
+
     -- color theme
     -- use { 'ellisonleao/gruvbox.nvim' }
     -- use 'sainnhe/gruvbox-material'
@@ -43,6 +45,10 @@ return require('packer').startup(function(use)
     -- auto close tags and brackets / parentheses
     use 'windwp/nvim-autopairs'
     use 'windwp/nvim-ts-autotag'
+
+    -- fuzzy finder
+    use 'nvim-telescope/telescope.nvim'
+    use 'nvim-telescope/telescope-file-browser.nvim'
 
     -- coq.nvim completion. not using for now.
     --use {
