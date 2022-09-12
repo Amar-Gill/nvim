@@ -50,6 +50,8 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-file-browser.nvim'
 
+    use 'akinsho/nvim-bufferline.lua'
+
     -- coq.nvim completion. not using for now.
     --use {
     --    'ms-jpq/coq_nvim',
