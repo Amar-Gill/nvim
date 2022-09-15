@@ -13,6 +13,15 @@ local on_attach = function(client, bufnr)
         vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
         vim.api.nvim_command [[augroup END]]
     end
+
+    -- Mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
+    vim.keymap.set('n', '<leader>dec', vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set('n', '<leader>def', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', '<C-h>', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set('n', '<leader>imp', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', '<leader>sig', vim.lsp.buf.signature_help, bufopts)
 end
 
 nvim_lsp.tsserver.setup {
