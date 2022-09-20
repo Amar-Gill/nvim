@@ -19,3 +19,6 @@ nnoremap("∆", ":m .+1<CR>") -- <A-j>
 nnoremap("˚", ":m .-2<CR>") -- <A-k>
 vnoremap("∆", ":m .+1<CR>gv") -- <A-j>
 vnoremap("˚", ":m .-2<CR>gv") -- <A-k>
+
+-- clipboard remaps
+vnoremap("p", '"_dP')
