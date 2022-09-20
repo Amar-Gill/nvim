@@ -67,14 +67,4 @@ packer.startup(function(use)
     use 'akinsho/nvim-bufferline.lua'
 
     use 'norcalli/nvim-colorizer.lua'
-
-    -- coq.nvim completion. not using for now.
-    --use {
-    --    'ms-jpq/coq_nvim',
-    --    branch = 'coq'
-    --}
-    --use {
-    --    'ms-jpq/coq.artifacts',
-    --    branch = 'artifacts'
-    --}
 end)
