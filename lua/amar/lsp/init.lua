@@ -19,6 +19,15 @@ local lsp_keymaps = function(bufnr)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
+
+  vim.keymap.set(
+    "n",
+    "gl",
+    '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
+    bufopts
+  )
+  vim.keymap.set("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', bufopts)
+  vim.keymap.set("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", bufopts)
 end
 
 local on_attach = function(client, bufnr)
@@ -32,6 +41,39 @@ local on_attach = function(client, bufnr)
 
   lsp_keymaps(bufnr)
 end
+
+local signs = {
+  { name = "DiagnosticSignError", text = "" },
+  { name = "DiagnosticSignWarn", text = "" },
+  { name = "DiagnosticSignHint", text = "" },
+  { name = "DiagnosticSignInfo", text = "" },
+}
+
+for _, sign in ipairs(signs) do
+  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+end
+
+local config = {
+  -- disable virtual text
+  virtual_text = false,
+  -- show signs
+  signs = {
+    active = signs,
+  },
+  update_in_insert = true,
+  underline = true,
+  severity_sort = true,
+  float = {
+    focusable = false,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+  },
+}
+
+vim.diagnostic.config(config)
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
