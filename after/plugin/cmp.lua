@@ -37,11 +37,11 @@ cmp.setup({
   --        max_item_count
   --        (more?)
   sources = cmp.config.sources({
-    { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
     { name = 'luasnip' },
-    { name = 'path' },
     { name = 'buffer' },
+    { name = 'path' },
   }),
   formatting = {
     format = lspkind.cmp_format {

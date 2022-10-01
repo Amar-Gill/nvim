@@ -1,8 +1,8 @@
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -43,21 +43,21 @@ packer.startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
 
   -- LSP config
-  use 'neovim/nvim-lspconfig'
+  use 'neovim/nvim-lspconfig' -- enable lsp
   use 'onsails/lspkind-nvim' -- vscode-like pictograms
 
   -- completion
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-nvim-lua'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/nvim-cmp'
-  -- use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp' -- The completion plugin
+  use 'hrsh7th/cmp-nvim-lsp' -- lsp completion source
+  use 'hrsh7th/cmp-nvim-lua' -- nvim lua completion source
+  use 'hrsh7th/cmp-buffer' -- buffer completions
+  use 'hrsh7th/cmp-path' -- path completions
+  use 'saadparwaiz1/cmp_luasnip' -- snippet completions
+  use 'hrsh7th/cmp-cmdline' -- command line completions
 
   -- Snippets
   use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
-  -- use "rafamadriz/friendly-snippets"
+  use "rafamadriz/friendly-snippets"
 
   -- syntax highlighting
   use {
