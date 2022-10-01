@@ -5,18 +5,10 @@ local protocol = require('vim.lsp.protocol')
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(protocol.make_client_capabilities())
 
-local on_attach = function(client, bufnr)
-  -- formatting
-  if client.server_capabilities.documentFormattingProvider then
-    vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-    vim.api.nvim_command [[augroup END]]
-  end
-
-  -- Mappings.
+local lsp_keymaps = function(bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
+
   vim.keymap.set('n', '<leader>dec', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', '<leader>def', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover, bufopts)
@@ -27,6 +19,18 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
+end
+
+local on_attach = function(client, bufnr)
+  -- formatting
+  if client.server_capabilities.documentFormattingProvider then
+    vim.api.nvim_command [[augroup Format]]
+    vim.api.nvim_command [[autocmd! * <buffer>]]
+    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+    vim.api.nvim_command [[augroup END]]
+  end
+
+  lsp_keymaps(bufnr)
 end
 
 nvim_lsp.tsserver.setup {
