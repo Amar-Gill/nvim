@@ -34,7 +34,8 @@ packer.startup(function(use)
   -- color theme
   -- use { 'ellisonleao/gruvbox.nvim' }
   -- use 'sainnhe/gruvbox-material'
-  use 'kvrohit/rasmus.nvim'
+  -- use 'kvrohit/rasmus.nvim'
+  use 'lewpoly/sherbet.nvim'
 
   -- status line
   use 'nvim-lualine/lualine.nvim'
