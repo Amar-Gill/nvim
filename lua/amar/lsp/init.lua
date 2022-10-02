@@ -31,6 +31,10 @@ local lsp_keymaps = function(bufnr)
 end
 
 local on_attach = function(client, bufnr)
+  if client.name == "tsserver" then
+    client.resolved_capabilities.document_formatting = false
+  end
+
   -- formatting
   if client.server_capabilities.documentFormattingProvider then
     vim.api.nvim_command [[augroup Format]]
