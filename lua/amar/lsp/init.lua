@@ -20,7 +20,12 @@ local lsp_keymaps = function(bufnr)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-	vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting, bufopts)
+	vim.keymap.set(
+		"n",
+		"<leader>f",
+		"<cmd>lua vim.lsp.buf.format { filter = function(client) return client.name ~= 'tsserver' end, async = true }<CR>",
+		bufopts
+	)
 
 	vim.keymap.set("n", "gl", '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>', bufopts)
 	vim.keymap.set("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', bufopts)
