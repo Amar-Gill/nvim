@@ -46,6 +46,7 @@ packer.startup(function(use)
   -- LSP config
   use 'neovim/nvim-lspconfig' -- enable lsp
   use 'onsails/lspkind-nvim' -- vscode-like pictograms
+  use 'jose-elias-alvarez/null-ls.nvim'
 
   -- completion
   use 'hrsh7th/nvim-cmp' -- The completion plugin
