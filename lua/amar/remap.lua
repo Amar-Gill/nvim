@@ -1,8 +1,8 @@
 local nnoremap = require("amar.keymap").nnoremap
 local vnoremap = require("amar.keymap").vnoremap
 
--- exit into netrw
-nnoremap("<leader>pv", "<cmd>Ex<CR>")
+nnoremap("<leader>pv", "<cmd>Ex<CR>") -- exit into netrw
+nnoremap("<leader>d", "<cmd>bd<CR>") -- delete current buffer
 
 -- navigate between windows
 nnoremap("<C-h>", "<C-w>h")
