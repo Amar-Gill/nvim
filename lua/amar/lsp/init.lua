@@ -7,6 +7,17 @@ local protocol = require("vim.lsp.protocol")
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(protocol.make_client_capabilities())
 
+local lsp_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		filter = function(client)
+			-- apply whatever logic you want (in this example, we'll only use null-ls)
+			return client.name == "null-ls"
+		end,
+		bufnr = bufnr,
+		timeout_ms = 5000,
+	})
+end
+
 local lsp_keymaps = function(bufnr)
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -20,29 +31,29 @@ local lsp_keymaps = function(bufnr)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-	vim.keymap.set(
-		"n",
-		"<leader>f",
-		"<cmd>lua vim.lsp.buf.format { filter = function(client) return client.name ~= 'tsserver' end, async = true }<CR>",
-		bufopts
-	)
+	vim.keymap.set("n", "<leader>f", function()
+		lsp_formatting(bufnr)
+	end, bufopts)
 
 	vim.keymap.set("n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', bufopts)
 	vim.keymap.set("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', bufopts)
 	vim.keymap.set("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", bufopts)
 end
 
-local on_attach = function(client, bufnr)
-	if client.name == "tsserver" then
-		client.server_capabilities.document_formatting = false
-	end
+-- if you want to set up formatting on save, you can use this as a callback
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-	-- formatting
-	if client.server_capabilities.documentFormattingProvider then
-		vim.api.nvim_command([[augroup Format]])
-		vim.api.nvim_command([[autocmd! * <buffer>]])
-		vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
-		vim.api.nvim_command([[augroup END]])
+local on_attach = function(client, bufnr)
+	-- formatting on save
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				lsp_formatting(bufnr)
+			end,
+		})
 	end
 
 	lsp_keymaps(bufnr)

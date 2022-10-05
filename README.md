@@ -10,3 +10,6 @@ Install these through your package manager:
 - lua-language-server
 - tree-sitter
 - ripgrep
+- prettier
+- eslint
+- stylua
