@@ -6,10 +6,14 @@ My nvim configuration.
 
 Install these through your package manager:
 
-- tsserver
 - lua-language-server
 - tree-sitter
 - ripgrep
+- stylua
+
+Install these globally through npm:
+
+- tsserver
 - prettier
 - eslint
-- stylua
+
