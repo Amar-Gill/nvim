@@ -10,7 +10,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.incsearch = true
 
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = "split"
 
 vim.opt.smartindent = true
 
@@ -22,3 +22,5 @@ vim.opt.cursorline = true
 vim.opt.hlsearch = true
 
 vim.opt.termguicolors = true
+
+vim.opt.cmdheight = 0
