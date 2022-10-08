@@ -14,5 +14,5 @@ bufferline.setup({
 })
 
 -- MacOS specific
-nnoremap("ß", "<Cmd>BufferLineCycleNext<CR>", {}) -- <A-s>
-nnoremap("å", "<Cmd>BufferLineCyclePrev<CR>", {}) -- <A-a>
+nnoremap("m", "<Cmd>BufferLineCycleNext<CR>", {}) -- <A-s>
+nnoremap("z", "<Cmd>BufferLineCyclePrev<CR>", {}) -- <A-a>
