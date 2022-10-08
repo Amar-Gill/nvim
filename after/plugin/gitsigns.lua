@@ -45,4 +45,34 @@ gitsigns.setup({
 	yadm = {
 		enable = false,
 	},
+	on_attach = function(bufnr)
+		local gs = package.loaded.gitsigns
+
+		local nnoremap = require("amar.keymap").nnoremap
+
+		-- Navigation
+		nnoremap("]g", function()
+			if vim.wo.diff then
+				return "]c"
+			end
+			vim.schedule(function()
+				gs.next_hunk()
+			end)
+			return "<Ignore>"
+		end, { expr = true })
+
+		nnoremap("[g", function()
+			if vim.wo.diff then
+				return "[c"
+			end
+			vim.schedule(function()
+				gs.prev_hunk()
+			end)
+			return "<Ignore>"
+		end, { expr = true })
+
+		nnoremap("gp", function()
+			gs.preview_hunk()
+		end)
+	end,
 })
