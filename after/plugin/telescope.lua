@@ -9,7 +9,7 @@ local function telescope_buffer_dir()
 	return vim.fn.expand("%:p:h")
 end
 
-local fb_actions = require("telescope").extensions.file_browser.actions
+local fb_actions = telescope.extensions.file_browser.actions
 
 telescope.setup({
 	defaults = {
@@ -67,7 +67,7 @@ end)
 vim.keymap.set("n", ";e", function()
 	builtin.diagnostics()
 end)
-vim.keymap.set("n", "sf", function()
+vim.keymap.set("n", ";b", function()
 	telescope.extensions.file_browser.file_browser({
 		path = "%:p:h",
 		cwd = telescope_buffer_dir(),
