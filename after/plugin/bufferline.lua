@@ -13,5 +13,5 @@ bufferline.setup({
 	},
 })
 
-nnoremap(")", "<Cmd>BufferLineCycleNext<CR>", {})
-nnoremap("(", "<Cmd>BufferLineCyclePrev<CR>", {})
+nnoremap("<C-0>", "<Cmd>BufferLineCycleNext<CR>", {})
+nnoremap("<C-9>", "<Cmd>BufferLineCyclePrev<CR>", {})
