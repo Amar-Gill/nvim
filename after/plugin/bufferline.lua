@@ -13,5 +13,6 @@ bufferline.setup({
 	},
 })
 
-nnoremap("<C-0>", "<Cmd>BufferLineCycleNext<CR>", {})
-nnoremap("<C-9>", "<Cmd>BufferLineCyclePrev<CR>", {})
+-- MacOS specific
+nnoremap("ß", "<Cmd>BufferLineCycleNext<CR>", {}) -- <A-s>
+nnoremap("å", "<Cmd>BufferLineCyclePrev<CR>", {}) -- <A-a>
