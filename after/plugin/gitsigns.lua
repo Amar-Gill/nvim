@@ -56,7 +56,7 @@ gitsigns.setup({
 				return "]c"
 			end
 			vim.schedule(function()
-				gs.next_hunk()
+				gs.next_hunk({ preview = true })
 			end)
 			return "<Ignore>"
 		end, { expr = true })
@@ -66,7 +66,7 @@ gitsigns.setup({
 				return "[c"
 			end
 			vim.schedule(function()
-				gs.prev_hunk()
+				gs.prev_hunk({ preview = true })
 			end)
 			return "<Ignore>"
 		end, { expr = true })
