@@ -1,3 +1,5 @@
+local nnoremap = require("amar.keymap").nnoremap
+
 local M = {}
 
 local lsp_formatting = function(bufnr)
@@ -15,23 +17,23 @@ local lsp_keymaps = function(bufnr)
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-	vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, bufopts)
-	vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, bufopts)
-	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
-	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-	vim.keymap.set("n", "F", function()
+	nnoremap("gD", vim.lsp.buf.declaration, bufopts)
+	nnoremap("gd", vim.lsp.buf.definition, bufopts)
+	nnoremap("K", vim.lsp.buf.hover, bufopts)
+	nnoremap("gi", vim.lsp.buf.implementation, bufopts)
+	nnoremap("gs", vim.lsp.buf.signature_help, bufopts)
+	nnoremap("<leader>D", vim.lsp.buf.type_definition, bufopts)
+	nnoremap("<leader>rn", vim.lsp.buf.rename, bufopts)
+	nnoremap("<leader>ca", vim.lsp.buf.code_action, bufopts)
+	nnoremap("gr", vim.lsp.buf.references, bufopts)
+	nnoremap("F", function()
 		lsp_formatting(bufnr)
 	end, bufopts)
 
-	vim.keymap.set("n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', bufopts)
-	vim.keymap.set("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', bufopts)
-	vim.keymap.set("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', bufopts)
-	vim.keymap.set("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", bufopts)
+	nnoremap("gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', bufopts)
+	nnoremap("]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', bufopts)
+	nnoremap("[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', bufopts)
+	nnoremap("<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", bufopts)
 end
 
 -- if you want to set up formatting on save, you can use this as a callback
