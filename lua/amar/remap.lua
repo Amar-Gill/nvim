@@ -5,10 +5,10 @@ nnoremap("<leader>pv", "<cmd>Ex<CR>") -- exit into netrw
 nnoremap("<leader>d", "<cmd>bd<CR>") -- delete current buffer
 
 -- navigate between windows
-nnoremap("<C-h>", "<C-w>h")
+nnoremap("<S-Tab>", "<C-w>h")
 nnoremap("<C-j>", "<C-w>j")
 nnoremap("<C-k>", "<C-w>k")
-nnoremap("<C-l>", "<C-w>l")
+nnoremap("<Tab>", "<C-w>l")
 
 -- stay in visual mode when indenting blocks of text
 vnoremap(">", ">gv")
