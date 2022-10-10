@@ -4,6 +4,8 @@ local vnoremap = require("amar.keymap").vnoremap
 nnoremap("<leader>pv", "<cmd>Ex<CR>") -- exit into netrw
 nnoremap("<leader>d", "<cmd>bd<CR>") -- delete current buffer
 
+nnoremap("<leader>v", "<cmd>vsplit<CR>") -- new vertical window
+nnoremap("<leader>w", "<C-w>c") -- close active window
 -- navigate between windows
 nnoremap("<S-Tab>", "<C-w>h")
 nnoremap("<C-j>", "<C-w>j")
