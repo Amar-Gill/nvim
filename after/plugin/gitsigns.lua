@@ -76,7 +76,7 @@ gitsigns.setup({
 		end)
 
 		nnoremap("gB", function()
-			gs.current_line_blame()
+			gs.blame_line()
 		end)
 	end,
 })
