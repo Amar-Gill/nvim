@@ -30,10 +30,20 @@ local lsp_keymaps = function(bufnr)
 		lsp_formatting(bufnr)
 	end, bufopts)
 
-	nnoremap("gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', bufopts)
-	nnoremap("]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', bufopts)
-	nnoremap("[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', bufopts)
-	nnoremap("<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", bufopts)
+	local diagnostic_move_opts = { border = "rounded", float = false }
+
+	-- nnoremap("gl", function()
+	-- 	vim.diagnostic.open_float({ border = "rounded" })
+	-- end, bufopts)
+	nnoremap("]d", function()
+		vim.diagnostic.goto_next(diagnostic_move_opts)
+	end, bufopts)
+	nnoremap("[d", function()
+		vim.diagnostic.goto_prev(diagnostic_move_opts)
+	end, bufopts)
+	nnoremap("<leader>q", function()
+		vim.diagnostic.setloclist()
+	end, bufopts)
 end
 
 -- if you want to set up formatting on save, you can use this as a callback

@@ -10,9 +10,7 @@ for _, sign in ipairs(signs) do
 end
 
 local config = {
-	-- disable virtual text
 	virtual_text = true,
-	-- show signs
 	signs = {
 		active = signs,
 	},
