@@ -74,5 +74,9 @@ gitsigns.setup({
 		nnoremap("gp", function()
 			gs.preview_hunk()
 		end)
+
+		nnoremap("gB", function()
+			gs.current_line_blame()
+		end)
 	end,
 })
