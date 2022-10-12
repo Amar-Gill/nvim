@@ -17,6 +17,9 @@ telescope.setup({
 		mappings = {
 			n = {
 				["q"] = actions.close,
+				["/"] = function()
+					vim.cmd.startinsert()
+				end,
 			},
 		},
 	},
@@ -38,9 +41,6 @@ telescope.setup({
 					["D"] = fb_actions.remove,
 					["R"] = fb_actions.rename,
 					["h"] = fb_actions.goto_parent_dir,
-					["/"] = function()
-						vim.cmd.startinsert()
-					end,
 				},
 			},
 		},
