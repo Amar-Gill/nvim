@@ -1,8 +1,10 @@
-local nnoremap = require("amar.keymap").nnoremap
-local vnoremap = require("amar.keymap").vnoremap
+local Remap = require("amar.keymap")
+local nnoremap = Remap.nnoremap
+local vnoremap = Remap.vnoremap
+local xnoremap = Remap.xnoremap
+local nmap = Remap.nmap
 
-nnoremap("<leader>pv", "<cmd>Ex<CR>") -- exit into netrw
-nnoremap("<leader>d", "<cmd>bd<CR>") -- delete current buffer
+nnoremap("<leader>bd", "<cmd>bd<CR>") -- delete current buffer
 
 nnoremap("<leader>v", "<cmd>vsplit<CR>") -- new vertical window
 nnoremap("<leader>w", "<C-w>c") -- close active window
@@ -23,4 +25,12 @@ vnoremap("∆", ":m .+1<CR>gv") -- <A-j>
 vnoremap("˚", ":m .-2<CR>gv") -- <A-k>
 
 -- clipboard remaps
-vnoremap("p", '"_dP')
+-- from thePrimeagen
+xnoremap("<leader>p", '"_dP')
+
+nnoremap("<leader>y", '"+y')
+vnoremap("<leader>y", '"+y')
+nmap("<leader>Y", '"+Y')
+
+nnoremap("<leader>d", '"_d')
+vnoremap("<leader>d", '"_d')
