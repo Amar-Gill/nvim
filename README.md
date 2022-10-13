@@ -16,4 +16,4 @@ Install these globally through npm:
 - tsserver
 - prettier
 - eslint
-
+- bash-language-server
