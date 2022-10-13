@@ -3,7 +3,7 @@ local nnoremap = Remap.nnoremap
 local vnoremap = Remap.vnoremap
 local xnoremap = Remap.xnoremap
 
-nnoremap("<leader>bd", "<cmd>bd<CR>") -- delete current buffer
+nnoremap("<leader>d", "<cmd>bd<CR>") -- delete current buffer
 
 nnoremap("<leader>v", "<cmd>vsplit<CR>") -- new vertical window
 nnoremap("<leader>w", "<C-w>c") -- close active window
