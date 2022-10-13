@@ -10,10 +10,10 @@ Install these through your package manager:
 - tree-sitter
 - ripgrep
 - stylua
+- bash-language-server
 
 Install these globally through npm:
 
 - tsserver
 - prettier
 - eslint
-- bash-language-server
