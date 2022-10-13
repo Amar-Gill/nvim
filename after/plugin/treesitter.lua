@@ -30,6 +30,7 @@ ts.setup({
 		"make",
 		"rust",
 		"bash",
+		"sql",
 	},
 	autotag = {
 		enable = true,
