@@ -27,6 +27,9 @@ ts.setup({
 		"svelte",
 		"vue",
 		"dockerfile",
+		"make",
+		"rust",
+		"bash",
 	},
 	autotag = {
 		enable = true,
