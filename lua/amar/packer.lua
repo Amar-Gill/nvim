@@ -86,6 +86,8 @@ packer.startup(function(use)
 	-- comments
 	use("numToStr/Comment.nvim")
 
+	use("towolf/vim-helm")
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
