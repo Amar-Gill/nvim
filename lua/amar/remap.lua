@@ -2,7 +2,6 @@ local Remap = require("amar.keymap")
 local nnoremap = Remap.nnoremap
 local vnoremap = Remap.vnoremap
 local xnoremap = Remap.xnoremap
-local nmap = Remap.nmap
 
 nnoremap("<leader>bd", "<cmd>bd<CR>") -- delete current buffer
 
@@ -26,16 +25,6 @@ vnoremap("∆", ":m .+1<CR>gv") -- <A-j>
 vnoremap("˚", ":m .-2<CR>gv") -- <A-k>
 
 -- clipboard remaps
--- from thePrimeagen and modified
 -- keep pasted value in clipboard when pasting over other text
 vnoremap("p", '"_dP')
 xnoremap("p", '"_dP')
-
--- put yanked value into clipboard
-nnoremap("y", '"+y')
-vnoremap("y", '"+y')
-nmap("Y", '"+Y')
-
--- @TODO
--- nnoremap("d", '"_d')
--- vnoremap("d", '"_d')
