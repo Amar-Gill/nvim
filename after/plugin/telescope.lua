@@ -55,33 +55,43 @@ nnoremap(";f", function()
 		hidden = true,
 	})
 end)
+
 nnoremap(";r", function()
 	builtin.live_grep()
 end)
+
 nnoremap("\\\\", function()
 	builtin.buffers()
 end)
+
 nnoremap(";t", function()
 	builtin.help_tags()
 end)
+
 nnoremap(";;", function()
 	builtin.resume()
 end)
+
 nnoremap(";e", function()
 	builtin.diagnostics()
 end)
+
 nnoremap(";ls", function()
 	builtin.lsp_document_symbols()
 end)
+
 nnoremap(";s", function()
 	builtin.git_status()
 end)
+
 nnoremap(";c", function()
 	builtin.git_commits()
 end)
+
 nnoremap(";C", function()
 	builtin.git_bcommits()
 end)
+
 nnoremap(";b", function()
 	telescope.extensions.file_browser.file_browser({
 		path = "%:p:h",
