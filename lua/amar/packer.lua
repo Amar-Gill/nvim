@@ -88,6 +88,8 @@ packer.startup(function(use)
 
 	use("towolf/vim-helm")
 
+	use({ "akinsho/toggleterm.nvim", tag = "*" })
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
