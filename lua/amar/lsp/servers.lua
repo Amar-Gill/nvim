@@ -36,4 +36,5 @@ nvim_lsp.pyright.setup({
 nvim_lsp.bashls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	filetypes = { "sh", "zsh", "bash" },
 })
