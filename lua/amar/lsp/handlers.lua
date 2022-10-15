@@ -67,6 +67,6 @@ end
 
 local protocol = require("vim.lsp.protocol")
 
-M.capabilities = require("cmp_nvim_lsp").update_capabilities(protocol.make_client_capabilities())
+M.capabilities = require("cmp_nvim_lsp").default_capabilities(protocol.make_client_capabilities())
 
 return M
