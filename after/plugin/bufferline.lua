@@ -13,6 +13,5 @@ bufferline.setup({
 	},
 })
 
--- MacOS specific
-nnoremap("m", "<Cmd>BufferLineCycleNext<CR>", {}) -- <A-s>
-nnoremap("z", "<Cmd>BufferLineCyclePrev<CR>", {}) -- <A-a>
+nnoremap("<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
+nnoremap("<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})

@@ -9,10 +9,10 @@ nnoremap("<leader>v", "<cmd>vsplit<CR>") -- new vertical window
 nnoremap("<leader>w", "<C-w>c") -- close active window
 
 -- navigate between windows
-nnoremap("<S-Tab>", "<C-w>h")
+nnoremap("z", "<C-w>h")
 nnoremap("<C-j>", "<C-w>j")
 nnoremap("<C-k>", "<C-w>k")
-nnoremap("<Tab>", "<C-w>l")
+nnoremap("m", "<C-w>l")
 
 -- stay in visual mode when indenting blocks of text
 vnoremap(">", ">gv")
