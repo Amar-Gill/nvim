@@ -49,50 +49,50 @@ telescope.setup({
 
 telescope.load_extension("file_browser")
 
-nnoremap(";f", function()
+nnoremap("\\f", function()
 	builtin.find_files({
 		no_ignore = false,
 		hidden = true,
 	})
 end)
 
-nnoremap(";r", function()
+nnoremap("\\r", function()
 	builtin.live_grep()
 end)
 
-nnoremap("\\\\", function()
+nnoremap("\\B", function()
 	builtin.buffers()
 end)
 
-nnoremap(";t", function()
+nnoremap("\\t", function()
 	builtin.help_tags()
 end)
 
-nnoremap(";;", function()
+nnoremap("\\\\", function()
 	builtin.resume()
 end)
 
-nnoremap(";e", function()
+nnoremap("\\e", function()
 	builtin.diagnostics()
 end)
 
-nnoremap(";ls", function()
+nnoremap("\\ls", function()
 	builtin.lsp_document_symbols()
 end)
 
-nnoremap(";s", function()
+nnoremap("\\s", function()
 	builtin.git_status()
 end)
 
-nnoremap(";c", function()
+nnoremap("\\c", function()
 	builtin.git_commits()
 end)
 
-nnoremap(";C", function()
+nnoremap("\\C", function()
 	builtin.git_bcommits()
 end)
 
-nnoremap(";b", function()
+nnoremap("\\b", function()
 	telescope.extensions.file_browser.file_browser({
 		path = "%:p:h",
 		cwd = telescope_buffer_dir(),
