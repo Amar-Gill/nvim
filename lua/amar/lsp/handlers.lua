@@ -26,7 +26,7 @@ local lsp_keymaps = function(bufnr)
 	nnoremap("<leader>rn", vim.lsp.buf.rename, bufopts)
 	nnoremap("<leader>ca", vim.lsp.buf.code_action, bufopts)
 	nnoremap("gr", vim.lsp.buf.references, bufopts)
-	nnoremap("F", function()
+	nnoremap("<leader>f", function()
 		lsp_formatting(bufnr)
 	end, bufopts)
 

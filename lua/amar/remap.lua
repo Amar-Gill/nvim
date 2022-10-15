@@ -28,3 +28,5 @@ vnoremap("˚", ":m .-2<CR>gv") -- <A-k>
 -- keep pasted value in clipboard when pasting over other text
 vnoremap("p", '"_dP')
 xnoremap("p", '"_dP')
+
+nnoremap("<leader>h", "<cmd>set hlsearch!<CR>") -- toggle highlight search
