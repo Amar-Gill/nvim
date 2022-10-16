@@ -32,9 +32,9 @@ local lsp_keymaps = function(bufnr)
 
 	local diagnostic_move_opts = { border = "rounded", float = false }
 
-	-- nnoremap("gl", function()
-	-- 	vim.diagnostic.open_float({ border = "rounded" })
-	-- end, bufopts)
+	nnoremap("gl", function()
+		vim.diagnostic.open_float({ border = "rounded" })
+	end, bufopts)
 	nnoremap("]d", function()
 		vim.diagnostic.goto_next(diagnostic_move_opts)
 	end, bufopts)
