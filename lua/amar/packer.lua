@@ -19,9 +19,10 @@ end
 packer.init({
 	display = {
 		open_fn = function()
-			-- Close current window if #windows > 1, so floating packer window may open
-			local windows = vim.api.nvim_list_wins()
-			if #windows > 1 then
+			-- Close current window if it is floating, so floating packer window may open
+			local current_window = vim.api.nvim_get_current_win()
+			local current_window_config = vim.api.nvim_win_get_config(current_window)
+			if current_window_config.zindex then
 				vim.api.nvim_win_close(0, true)
 			end
 			-- Have packer use a popup window
