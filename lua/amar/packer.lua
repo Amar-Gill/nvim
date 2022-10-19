@@ -16,10 +16,15 @@ if not status_ok then
 	return
 end
 
--- Have packer use a popup window
 packer.init({
 	display = {
 		open_fn = function()
+			-- Close current window if #windows > 1, so floating packer window may open
+			local windows = vim.api.nvim_list_wins()
+			if #windows > 1 then
+				vim.api.nvim_win_close(0, true)
+			end
+			-- Have packer use a popup window
 			return require("packer.util").float({ border = "rounded" })
 		end,
 	},
