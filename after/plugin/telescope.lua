@@ -17,6 +17,7 @@ telescope.setup({
 		mappings = {
 			n = {
 				["q"] = actions.close,
+				["<C-c>"] = actions.close,
 				["/"] = function()
 					vim.cmd.startinsert()
 				end,
