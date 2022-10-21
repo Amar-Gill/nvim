@@ -16,6 +16,14 @@ if not status_ok then
 	return
 end
 
+-- Autocommand that reloads neovim whenever you save the packer.lua file
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost packer.lua source <afile> | PackerSync
+  augroup end
+]])
+
 packer.init({
 	display = {
 		open_fn = function()
@@ -38,10 +46,9 @@ packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- Common utilities
 
 	-- color theme
-	-- use { 'ellisonleao/gruvbox.nvim' }
-	-- use 'sainnhe/gruvbox-material'
-	-- use 'kvrohit/rasmus.nvim'
+	use("kvrohit/rasmus.nvim")
 	use("lewpoly/sherbet.nvim")
+	use("kyazdani42/blue-moon")
 
 	-- status line
 	use("nvim-lualine/lualine.nvim")
