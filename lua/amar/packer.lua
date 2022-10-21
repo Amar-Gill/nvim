@@ -49,6 +49,8 @@ packer.startup(function(use)
 	use("kvrohit/rasmus.nvim")
 	use("lewpoly/sherbet.nvim")
 	use("kyazdani42/blue-moon")
+	use("numToStr/Sakura.nvim")
+	use("rose-pine/neovim")
 
 	-- status line
 	use("nvim-lualine/lualine.nvim")
