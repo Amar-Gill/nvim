@@ -17,3 +17,4 @@ Install these globally through npm:
 - tsserver
 - prettier
 - eslint
+- @tailwindcss/language-server

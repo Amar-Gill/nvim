@@ -11,6 +11,11 @@ nvim_lsp.tsserver.setup({
 	capabilities = capabilities,
 })
 
+nvim_lsp.tailwindcss.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
 nvim_lsp.sumneko_lua.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
