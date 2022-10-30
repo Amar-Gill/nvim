@@ -45,7 +45,7 @@ packer.startup(function(use)
 
 	use("nvim-lua/plenary.nvim") -- Common utilities
 
-	-- color theme
+	-- color themes
 	use("kvrohit/rasmus.nvim")
 	use("lewpoly/sherbet.nvim")
 	use("kyazdani42/blue-moon")
@@ -104,6 +104,8 @@ packer.startup(function(use)
 	use("towolf/vim-helm")
 
 	use({ "akinsho/toggleterm.nvim", tag = "*" })
+
+	use("lewis6991/impatient.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
