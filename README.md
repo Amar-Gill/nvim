@@ -11,6 +11,7 @@ Install these through your package manager:
 - ripgrep
 - stylua
 - bash-language-server
+- tidy-html5
 
 Install these globally through npm:
 
