@@ -25,6 +25,8 @@ vim.opt.termguicolors = true
 
 vim.opt.cmdheight = 0
 
+vim.opt.laststatus = 3
+
 vim.opt.clipboard = "unnamedplus"
 
 vim.opt.ignorecase = true
