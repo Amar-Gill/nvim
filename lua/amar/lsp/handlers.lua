@@ -1,5 +1,10 @@
 local nnoremap = require("amar.keymap").nnoremap
 
+local status, navic = pcall(require, "nvim-navic")
+if not status then
+	return
+end
+
 local M = {}
 
 local lsp_formatting = function(bufnr)
@@ -63,6 +68,10 @@ M.on_attach = function(client, bufnr)
 	end
 
 	lsp_keymaps(bufnr)
+
+	if client.server_capabilities.documentSymbolProvider then
+		navic.attach(client, bufnr)
+	end
 end
 
 local protocol = require("vim.lsp.protocol")
