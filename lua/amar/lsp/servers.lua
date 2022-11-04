@@ -48,3 +48,10 @@ nvim_lsp.bashls.setup({
 	capabilities = capabilities,
 	filetypes = { "sh", "zsh", "bash" },
 })
+
+local groovyls_dir = os.getenv("HOME") .. "/groovy-language-server/build/libs/groovy-language-server-all.jar"
+nvim_lsp.groovyls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	cmd = { "java", "-jar", groovyls_dir },
+})

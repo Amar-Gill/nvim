@@ -12,6 +12,7 @@ Install these through your package manager:
 - stylua
 - bash-language-server
 - tidy-html5
+- groovy-language-server
 
 Install these globally through npm:
 
