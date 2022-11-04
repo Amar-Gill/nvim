@@ -1,10 +1,5 @@
 local nnoremap = require("amar.keymap").nnoremap
 
-local status, navic = pcall(require, "nvim-navic")
-if not status then
-	return
-end
-
 local M = {}
 
 local lsp_formatting = function(bufnr)
@@ -51,6 +46,18 @@ local lsp_keymaps = function(bufnr)
 	end, bufopts)
 end
 
+-- allows for context aware breadcrumbs
+local breadcrumbs = function(client, bufnr)
+	local status, navic = pcall(require, "nvim-navic")
+	if not status then
+		return
+	end
+
+	if client.server_capabilities.documentSymbolProvider then
+		navic.attach(client, bufnr)
+	end
+end
+
 -- if you want to set up formatting on save, you can use this as a callback
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
@@ -68,10 +75,7 @@ M.on_attach = function(client, bufnr)
 	end
 
 	lsp_keymaps(bufnr)
-
-	if client.server_capabilities.documentSymbolProvider then
-		navic.attach(client, bufnr)
-	end
+	breadcrumbs(client, bufnr)
 end
 
 local protocol = require("vim.lsp.protocol")

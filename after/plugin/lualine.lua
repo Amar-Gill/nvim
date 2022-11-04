@@ -3,9 +3,16 @@ if not status1 then
 	return
 end
 
-local status2, navic = pcall(require, "nvim-navic")
-if not status2 then
-	return
+-- so lualine can still load if navic does not load
+local breadcrumbs = function()
+	local status2, navic = pcall(require, "nvim-navic")
+	if not status2 then
+		return
+	end
+	return {
+		navic.get_location,
+		cond = navic.is_available,
+	}
 end
 
 lualine.setup({
@@ -35,10 +42,7 @@ lualine.setup({
 				"filename",
 				path = 1,
 			},
-			{
-				navic.get_location,
-				cond = navic.is_available,
-			},
+			breadcrumbs(),
 		},
 		lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_y = { "progress" },
