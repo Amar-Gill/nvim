@@ -31,6 +31,7 @@ ts.setup({
 		"rust",
 		"bash",
 		"sql",
+		"java",
 	},
 	autotag = {
 		enable = true,
