@@ -38,9 +38,8 @@ vim.opt.smartcase = true
 local get_winbar = function()
 	local status = pcall(require, "nvim-navic")
 	if status then
-		return "%{%v:lua.require'nvim-navic'.get_location()%} %=%t"
+		return "%f %{%v:lua.require'nvim-navic'.get_location()%}"
 	end
-	return "%=%t"
 end
 
 vim.o.winbar = get_winbar()
