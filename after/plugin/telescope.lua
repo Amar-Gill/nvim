@@ -61,7 +61,7 @@ nnoremap("\\r", function()
 	builtin.live_grep()
 end)
 
-nnoremap("\\B", function()
+nnoremap("\\\\", function()
 	builtin.buffers()
 end)
 
@@ -69,7 +69,7 @@ nnoremap("\\t", function()
 	builtin.help_tags()
 end)
 
-nnoremap("\\\\", function()
+nnoremap("|", function()
 	builtin.resume()
 end)
 

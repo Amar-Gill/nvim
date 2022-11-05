@@ -42,7 +42,7 @@ lualine.setup({
 				"filename",
 				path = 1,
 			},
-			breadcrumbs(),
+			-- breadcrumbs(),
 		},
 		lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_y = { "progress" },
