@@ -51,7 +51,7 @@ packer.startup(function(use)
 	use("kyazdani42/blue-moon")
 	use("numToStr/Sakura.nvim")
 	-- use("rose-pine/neovim")
-	use({ "Amar-Gill/neovim", branch = "add-new-variant" })
+	use({ "Amar-Gill/rose-pine-neovim", branch = "add-new-variant" })
 	use("kvrohit/substrata.nvim")
 	use("kvrohit/mellow.nvim")
 
