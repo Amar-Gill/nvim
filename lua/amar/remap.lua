@@ -8,6 +8,8 @@ nnoremap("<leader>d", "<cmd>bd<CR>") -- delete current buffer
 nnoremap("<leader>v", "<cmd>vsplit<CR>") -- new vertical window
 nnoremap("<leader>w", "<C-w>c") -- close active window
 
+nnoremap("<leader>bg", ':exec &bg=="light" ? "set bg=dark" : "set bg=light" <CR>') -- toggle light / dark bg
+
 -- navigate between windows
 nnoremap("z", "<C-w>h")
 nnoremap("<C-j>", "<C-w>j")
