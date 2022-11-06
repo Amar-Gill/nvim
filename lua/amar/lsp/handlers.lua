@@ -89,15 +89,32 @@ local breadcrumbs = function(client, bufnr)
 	end
 end
 
+local highlight_augroup = vim.api.nvim_create_augroup("HighlightReferencesOnCursor", {})
+
+local lsp_highlights = function(client, bufnr)
+	if client.server_capabilities.documentHighlightProvider then
+		vim.api.nvim_create_autocmd("CursorHold", {
+			group = highlight_augroup,
+			callback = vim.lsp.buf.document_highlight,
+			buffer = bufnr,
+		})
+		vim.api.nvim_create_autocmd({ "CursorMoved", "InsertEnter", "BufLeave" }, {
+			group = highlight_augroup,
+			callback = vim.lsp.buf.clear_references,
+			buffer = bufnr,
+		})
+	end
+end
+
 -- if you want to set up formatting on save, you can use this as a callback
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local formatting_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 M.on_attach = function(client, bufnr)
 	-- formatting on save
 	if client.supports_method("textDocument/formatting") then
-		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_clear_autocmds({ group = formatting_augroup, buffer = bufnr })
 		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = augroup,
+			group = formatting_augroup,
 			buffer = bufnr,
 			callback = function()
 				lsp_formatting(bufnr)
@@ -106,6 +123,7 @@ M.on_attach = function(client, bufnr)
 	end
 
 	lsp_keymaps(bufnr)
+	lsp_highlights(client, bufnr)
 	breadcrumbs(client, bufnr)
 end
 
