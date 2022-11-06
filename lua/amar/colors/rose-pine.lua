@@ -4,7 +4,7 @@ if not status then
 end
 
 rose_pine.setup({
-	dark_variant = "main",
+	dark_variant = "test",
 	groups = {
 		git_change = "gold",
 		git_add = "pine",
