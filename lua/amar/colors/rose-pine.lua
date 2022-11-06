@@ -5,5 +5,8 @@ end
 
 rose_pine.setup({
 	dark_variant = "main",
-	groups = {},
+	groups = {
+		git_change = "gold",
+		git_add = "pine",
+	},
 })
