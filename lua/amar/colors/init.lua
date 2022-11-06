@@ -1,3 +1,5 @@
+require("amar.colors.rose-pine")
+
 vim.o.background = "dark" -- or "light" for light mode
 
 local colorscheme = "rose-pine"
