@@ -20,3 +20,7 @@ Install these globally through npm:
 - prettier
 - eslint
 - @tailwindcss/language-server
+
+Install these through pip(3):
+
+- beautysh
