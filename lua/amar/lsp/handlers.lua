@@ -13,6 +13,20 @@ local lsp_formatting = function(bufnr)
 	})
 end
 
+local display_lsp_signature = function(bufnr)
+	local status, lsp_signature = pcall(require, "lsp_signature")
+	if not status then
+		return
+	end
+
+	lsp_signature.on_attach({
+		bind = true,
+		handler_opts = {
+			border = "rounded",
+		},
+	}, bufnr)
+end
+
 local lsp_keymaps = function(bufnr)
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -124,6 +138,7 @@ M.on_attach = function(client, bufnr)
 
 	lsp_keymaps(bufnr)
 	lsp_highlights(client, bufnr)
+	display_lsp_signature(bufnr)
 	breadcrumbs(client, bufnr)
 end
 

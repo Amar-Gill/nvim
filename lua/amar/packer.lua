@@ -65,6 +65,7 @@ packer.startup(function(use)
 	use("neovim/nvim-lspconfig") -- enable lsp
 	use("onsails/lspkind-nvim") -- vscode-like pictograms
 	use("jose-elias-alvarez/null-ls.nvim")
+	use("ray-x/lsp_signature.nvim") -- show lsp signature in insert mode when calling a function
 
 	-- completion
 	use("hrsh7th/nvim-cmp") -- The completion plugin
