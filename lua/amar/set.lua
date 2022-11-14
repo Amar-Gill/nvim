@@ -35,11 +35,15 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.opt.updatetime = 300
+
 local get_winbar = function()
+	local s = "%t"
 	local status = pcall(require, "nvim-navic")
 	if status then
-		return "%t %{%v:lua.require'nvim-navic'.get_location()%}"
+		return s .. " %{%v:lua.require'nvim-navic'.get_location()%}"
 	end
+	return s
 end
 
 vim.o.winbar = get_winbar()
