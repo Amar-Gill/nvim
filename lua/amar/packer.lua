@@ -114,6 +114,8 @@ packer.startup(function(use)
 	-- breadcrumbs
 	use("SmiteshP/nvim-navic")
 
+	use("Cian911/vim-cadence")
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
