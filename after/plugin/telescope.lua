@@ -78,8 +78,10 @@ nnoremap("|", function()
 	builtin.resume()
 end)
 
-nnoremap("\\e", function()
-	builtin.diagnostics()
+nnoremap("\\d", function()
+	builtin.diagnostics({
+		initial_mode = "normal",
+	})
 end)
 
 nnoremap("\\ls", function()
@@ -87,15 +89,21 @@ nnoremap("\\ls", function()
 end)
 
 nnoremap("\\s", function()
-	builtin.git_status()
+	builtin.git_status({
+		initial_mode = "normal",
+	})
 end)
 
 nnoremap("\\c", function()
-	builtin.git_commits()
+	builtin.git_commits({
+		initial_mode = "normal",
+	})
 end)
 
 nnoremap("\\C", function()
-	builtin.git_bcommits()
+	builtin.git_bcommits({
+		initial_mode = "normal",
+	})
 end)
 
 nnoremap("\\b", function()
