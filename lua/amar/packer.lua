@@ -66,11 +66,11 @@ packer.startup(function(use)
 	use("onsails/lspkind-nvim") -- vscode-like pictograms
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("ray-x/lsp_signature.nvim") -- show lsp signature in insert mode when calling a function
+	use("folke/neodev.nvim") -- annotations for vim and plugins (requires sumneko_lua ls)
 
 	-- completion
 	use("hrsh7th/nvim-cmp") -- The completion plugin
 	use("hrsh7th/cmp-nvim-lsp") -- lsp completion source
-	use("hrsh7th/cmp-nvim-lua") -- nvim lua completion source
 	use("hrsh7th/cmp-buffer") -- buffer completions
 	use("hrsh7th/cmp-path") -- path completions
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions

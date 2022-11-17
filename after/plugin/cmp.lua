@@ -40,7 +40,6 @@ cmp.setup({
 	--        (more?)
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
@@ -52,7 +51,6 @@ cmp.setup({
 			menu = {
 				buffer = "[buf]",
 				nvim_lsp = "[LSP]",
-				nvim_lua = "[api]",
 				path = "[path]",
 				luasnip = "[snip]",
 				-- gh_issues = "[issues]",
