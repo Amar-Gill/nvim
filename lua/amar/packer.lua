@@ -80,12 +80,16 @@ packer.startup(function(use)
 	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets")
 
-	-- syntax highlighting
+	-- treesitter (syntax parsing)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = "TSUpdate",
 	})
 	use("JoosepAlviste/nvim-ts-context-commentstring")
+
+	-- syntax highlighting special cases
+	use("towolf/vim-helm") -- highlighting for helm charts which are Go templates disguised as .yaml files
+	use("Cian911/vim-cadence") -- cadence language (flow smart contracts)
 
 	-- auto close tags and brackets / parentheses
 	use("windwp/nvim-autopairs")
@@ -105,16 +109,12 @@ packer.startup(function(use)
 	-- comments
 	use("numToStr/Comment.nvim")
 
-	use("towolf/vim-helm")
-
 	use({ "akinsho/toggleterm.nvim", tag = "*" })
 
 	use("lewis6991/impatient.nvim")
 
 	-- breadcrumbs
 	use("SmiteshP/nvim-navic")
-
-	use("Cian911/vim-cadence")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
