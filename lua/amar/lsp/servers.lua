@@ -58,3 +58,14 @@ nvim_lsp.groovyls.setup({
 	capabilities = capabilities,
 	cmd = { "java", "-jar", groovyls_dir },
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "cadence",
+	callback = function()
+		vim.lsp.start({
+			name = "cadence-language-server",
+			cmd = { "flow", "cadence", "language-server" },
+			root_dir = vim.fs.dirname(vim.fs.find({ "flow.json" }, { upward = true })[1]),
+		})
+	end,
+})
