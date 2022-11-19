@@ -13,6 +13,10 @@ Install these through your package manager:
 - bash-language-server
 - tidy-html5
 - groovy-language-server
+- pyright
+- black
+- flake8
+- flow-cli
 
 Install these globally through npm:
 
@@ -20,6 +24,8 @@ Install these globally through npm:
 - prettier
 - eslint
 - @tailwindcss/language-server
+- vscode-html-language-server
+- npm-groovy-lint
 
 Install these through pip(3):
 
