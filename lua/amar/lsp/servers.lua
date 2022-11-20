@@ -69,7 +69,7 @@ vim.api.nvim_create_autocmd("FileType", {
 			root_dir = flow_project_dir,
 			init_options = {
 				configPath = flow_project_dir .. "/flow.json",
-				numberOfAccounts = "1",
+				numberOfAccounts = "3",
 			},
 			on_attach = on_attach,
 			capabilities = capabilities,
