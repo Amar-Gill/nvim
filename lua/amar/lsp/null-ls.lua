@@ -16,8 +16,10 @@ null_ls.setup({
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.npm_groovy_lint,
 		formatting.beautysh,
+		formatting.gofmt,
 		diagnostics.eslint,
 		diagnostics.tidy,
 		diagnostics.flake8,
+		diagnostics.golangci_lint,
 	},
 })
